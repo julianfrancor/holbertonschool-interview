@@ -3,6 +3,7 @@
   Method to check if a box can be opened or not
 """
 
+
 def canUnlockAll(boxes):
     """
       canUnlockAll is a method that checks whether
