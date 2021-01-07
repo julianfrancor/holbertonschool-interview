@@ -14,31 +14,16 @@ def minOperations(n):
     number of operations needed to result
     in exactly n H characters in the file.
     """
-    count = 0
-    chars = 1
-    if n == 0 or n < 0:
+    if n <= 0:
         return count
+    count = 2
+    chars = 2
+    aux_copy = 1
 
-    if n % 2 != 0:
-        while chars <= n:
-            if chars % 2 != 0:
-                aux = chars
-                chars += aux
-                count += 2
-            elif chars % 2 == 0:
-                chars += aux
-                count += 1
-            if chars >= n:
-                return count
-    else:
-        while chars <= n:
-            if chars % 2 != 0:
-                aux = chars
-                chars += aux
-                count += 2
-            elif chars % 2 == 0:
-                chars += aux
-                count += 1
-            if chars >= n:
-                count -= 1
-                return count
+    while chars < n:
+        if n % chars == 0:
+            aux_copy = chars
+            count += 1
+        chars += aux_copy
+        count += 1
+    return count
