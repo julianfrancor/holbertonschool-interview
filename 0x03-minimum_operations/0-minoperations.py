@@ -14,7 +14,7 @@ def minOperations(n):
     number of operations needed to result
     in exactly n H characters in the file.
     """
-    if n <= 0:
+    if n <= 1:
         return count
     count = 2
     chars = 2
