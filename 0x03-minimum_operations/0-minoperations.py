@@ -15,7 +15,7 @@ def minOperations(n):
     in exactly n H characters in the file.
     """
     if n <= 1:
-        return count
+        return 0
     count = 2
     chars = 2
     aux_copy = 1
