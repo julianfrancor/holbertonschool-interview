@@ -1,5 +1,6 @@
-
 #include "palindrome.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * main - Entry point

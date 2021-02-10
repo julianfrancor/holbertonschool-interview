@@ -1,5 +1,6 @@
 #include "palindrome.h"
-#include <stdlib.h>
+#include <stdio.h>
+
 
 /**
  * is_palindrome - unction that checks whether or
