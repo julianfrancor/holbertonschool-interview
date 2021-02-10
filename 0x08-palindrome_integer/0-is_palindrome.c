@@ -10,14 +10,12 @@
  */
 int is_palindrome(unsigned long n)
 {
-
-	const int value = snprintf(NULL, 0, "%lu", n);
+  const int value = snprintf(NULL, 0, "%lu", n);
 	char buffer[value + 1];
 	int c = snprintf(buffer, value + 1, "%lu", n);
-	int i = 0;
 	char start, end;
 
-	for (i = 0; i < c; i++)
+	for (int i = 0; i < c; i++)
 	{
 		start = buffer[i];
 		end = buffer[(c - 1) - i];
@@ -26,6 +24,5 @@ int is_palindrome(unsigned long n)
 			return (0);
 		}
 	}
-
 	return (1);
 }
