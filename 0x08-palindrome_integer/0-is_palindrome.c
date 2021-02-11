@@ -10,6 +10,16 @@
  */
 int is_palindrome(unsigned long n)
 {
+	unsigned long sum = n % 10, num = n;
+
+	while (num /= 10)
+		sum = (sum * 10) + (num % 10);
+
+	return (n == sum);
+}
+
+/*int is_palindrome(unsigned long n)
+{
   const int value = snprintf(NULL, 0, "%lu", n);
 	char buffer[value + 1];
 	int c = snprintf(buffer, value + 1, "%lu", n);
@@ -25,4 +35,4 @@ int is_palindrome(unsigned long n)
 		}
 	}
 	return (1);
-}
+}*/
