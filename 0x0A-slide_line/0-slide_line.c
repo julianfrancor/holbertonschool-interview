@@ -12,7 +12,8 @@
  */
 int slide_line(int *line, size_t size, int direction)
 {
-	
+	if (size <= 0 || ((direction != SLIDE_LEFT) && (direction != SLIDE_RIGHT)))
+		return (0);
 	if (direction == SLIDE_LEFT)
 		slide_left(line, size);
 	else if (direction == SLIDE_RIGHT)
@@ -70,40 +71,31 @@ void slide_left(int *line, size_t size)
  */
 void slide_right(int *line, size_t size)
 {
-	size_t i, k, p, q = 0;
-	int aux[size];
+	size_t q = 0, j;
+	int aux[size], p, i, k;
 
-	for (k = 0; k < size; k++)
-		aux[k] = 0;
+	for (j = 0; j < size; j++){
+		aux[j] = 0;
+	}
 	q = size - 1;
-	for (p = size - 1; p > 0; p--)
+	for (p = size - 1; p >= 0; p--)
 	{
 		if (line[p] != 0)
+			aux[q--] = line[p];
+	}
+	for (i = size - 1; i >= 0; i--){
+		if (aux[i] == aux[i-1])
 		{
-			aux[q] = line[p];
-			q--;
+			aux[i] += aux[i-1];
+			aux[i-1] = 0;
 		}
 	}
-	if (line[0] != 0)
-		aux[q] = line[0];
-
-	for (i = size - 1; i > 0; i--)
-	{
-		if (aux[i] == aux[i - 1])
-		{
-			aux[i] += aux[i - 1];
-			aux[i - 1] = 0;
-		}
-	}
-	for (k = size - 1; k > 0; k--)
+	for (k = size - 1; k >= 0; k--)
 		line[k] = 0;
-	line[k] = 0;
 	q = size - 1;
-	for (p = size - 1; p > 0; p--)
+	for (p = size - 1; p >= 0; p--)
 	{
 		if (aux[p] != 0)
 			line[q--] = aux[p];
 	}
-	if (line[0] != 0)
-		aux[q] = line[0];
 }
