@@ -74,20 +74,20 @@ void slide_right(int *line, size_t size)
 	size_t q = 0, j;
 	int aux[size], p, i, k;
 
-	for (j = 0; j < size; j++){
+	for (j = 0; j < size; j++)
 		aux[j] = 0;
-	}
 	q = size - 1;
 	for (p = size - 1; p >= 0; p--)
 	{
 		if (line[p] != 0)
 			aux[q--] = line[p];
 	}
-	for (i = size - 1; i >= 0; i--){
-		if (aux[i] == aux[i-1])
+	for (i = size - 1; i >= 0; i--)
+	{
+		if (aux[i] == aux[i - 1])
 		{
-			aux[i] += aux[i-1];
-			aux[i-1] = 0;
+			aux[i] += aux[i - 1];
+			aux[i - 1] = 0;
 		}
 	}
 	for (k = size - 1; k >= 0; k--)
